@@ -1,4 +1,4 @@
-.friendMessage {
+/* .friendMessage {
     display: flex;
     flex-direction: row-reverse;
     
@@ -59,4 +59,39 @@ s.friendMessageImg {
     width: 50px; 
     height: 50px;
     
+} */
+
+
+
+.friendMessage {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+
 }
+
+.friendImageAndText {
+    background-color: aqua;
+    display: flex;
+   
+}
+
+.friendImageAndText img {
+    height: 50px;
+    width: 50px;
+}
+
+.friendText {
+  
+    color: white;
+    border-radius: 15px;
+   
+}
+
+.friendText:after {}
+
+.friendName {}
+
+.friendMessageText {}
+
+.friendTime {}

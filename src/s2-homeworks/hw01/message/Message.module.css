@@ -1,4 +1,4 @@
-
+/* 
 .message {
         
     
@@ -49,4 +49,57 @@ font-weight: bold;
 .time {
 
 }
+ */
+ .message {
+    
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+    align-items:end
+}
 
+
+ 
+ .imageAndText {
+    
+    border-radius: 15px;
+ }
+ 
+ .imageAndText img {
+  
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 5px;
+ 
+  
+  
+ 
+ }
+ 
+ .text {
+    
+    color: white;
+    border-radius: 15px;
+    display: inline-block;
+    padding: 10px 10px;
+ }
+ 
+ .text:after {
+ 
+ }
+ 
+ .name {
+    text-align: right;
+    font-weight: bold;
+ }
+ 
+ .messageText {
+    background-color: rgb(61, 61, 196);
+ }
+ 
+ .time {
+ 
+ }
