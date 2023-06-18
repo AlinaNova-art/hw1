@@ -1,14 +1,30 @@
 .buttonsContainer {
+    display:flex;
+    justify-content:flex-start
+}
+
+.button {
+    width: 10%;
+    height: 1.5em;
+    border-radius: 3px;
+    color: white;
+    background: #0B63F6;
+    font-size: 1.2em;
+}
+
+.button:disabled {
+    opacity: 0.5;
 }
 
 .clock {
+   
 }
 
 .watch {
+    font-size: 15px;
+    font-weight: bold;
 }
 
-.watch strong {
-}
+.watch strong {}
 
-.more {
-}
+.more {}
