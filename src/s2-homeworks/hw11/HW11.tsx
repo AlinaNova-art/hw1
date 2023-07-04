@@ -15,33 +15,18 @@ function HW11() {
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
     const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-    const change1 = (event: Event, value: number | number[]) => {
-        if (Array.isArray(value)) {
-            const [value1, value2] = value;
-            setValue1(value[0]);
-            setValue2(value[1]);
-        }
-        else {
-            setValue1(value);
-        }
-
+    const change1 = (value: number) => {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
+        setValue1(value);
     }
-
-
-    const change2 = (event: Event, value: number | number[]) => {
-        if (Array.isArray(value)) {
-            const [value1, value2] = value;
-            setValue1(value[0]);
-            setValue2(value[1]);
-        }
-        else {
-            setValue2(value);
-        }
-
+    const change2 = (value: number) => {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
+        setValue1(value);
+        setValue2(value);
     }
-
+    const getValue = (value: number | number[]): number =>{
+        return Array.isArray(value) ? value[0] : value;
+    }
 
     return (
         <div id={'hw11'}>
@@ -53,20 +38,18 @@ function HW11() {
                         <span id={'hw11-value'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-single-slider'}
-                        value={value1}
-                        onChange={(e, v)=>change1(e, v)}
-
-                        // сделать так чтоб value1 изменялось // пишет студент
-
+                            value={value1}
+                            // сделать так чтоб value1 изменялось // пишет студент
+                            onChange={(_, v) => change1(getValue(v))}
                         />
                     </div>
                     <div className={s.wrapper}>
-                        <span id={'hw11-value-1'} className={s.number}>{value2}</span>
+                        <span id={'hw11-value-1'} className={s.number}>{value1}</span>
                         <SuperRange
-                            id={'hw11-double-slider'}
-                        // сделать так чтоб value1/2 изменялось // пишет студент
-                        value={value2}
-                        onChange={(e, v)=>change2(e, v)}
+                            id={'hw11-double-slider'} 
+                            value={value2}
+                            // сделать так чтоб value1/2 изменялось // пишет студент
+                            onChange={(_, v) => change2(getValue(v))}
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
                     </div>
@@ -77,3 +60,5 @@ function HW11() {
 }
 
 export default HW11
+
+
