@@ -19,13 +19,10 @@ function HW11() {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
         setValue1(value);
     }
-    const change2 = (value: number) => {
+    const change2 = (value: number[]) => {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
-        setValue1(value);
-        setValue2(value);
-    }
-    const getValue = (value: number | number[]): number =>{
-        return Array.isArray(value) ? value[0] : value;
+        setValue1(value[0]);
+        setValue2(value[1]);
     }
 
     return (
@@ -40,16 +37,16 @@ function HW11() {
                             id={'hw11-single-slider'}
                             value={value1}
                             // сделать так чтоб value1 изменялось // пишет студент
-                            onChange={(_, v) => change1(getValue(v))}
+                            onChange={(_, v) => change1(v as number)}
                         />
                     </div>
                     <div className={s.wrapper}>
                         <span id={'hw11-value-1'} className={s.number}>{value1}</span>
                         <SuperRange
                             id={'hw11-double-slider'} 
-                            value={value2}
+                            value={[value1, value2]}
                             // сделать так чтоб value1/2 изменялось // пишет студент
-                            onChange={(_, v) => change2(getValue(v))}
+                            onChange={(_, v) => change2(v as number[])}
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
                     </div>
