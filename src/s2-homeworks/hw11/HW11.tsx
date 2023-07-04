@@ -15,18 +15,33 @@ function HW11() {
     const [value1, setValue1] = useState(restoreState<number>('hw11-value1', 0))
     const [value2, setValue2] = useState(restoreState<number>('hw11-value2', 100))
 
-    const change = (event: Event, value: number | number[]) => {
+    const change1 = (event: Event, value: number | number[]) => {
         if (Array.isArray(value)) {
             const [value1, value2] = value;
-            setValue1(value1);
-            setValue2(value2);
+            setValue1(value[0]);
+            setValue2(value[1]);
         }
-        else if (typeof value === 'number') {
+        else {
             setValue1(value);
         }
 
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
     }
+
+
+    const change2 = (event: Event, value: number | number[]) => {
+        if (Array.isArray(value)) {
+            const [value1, value2] = value;
+            setValue1(value[0]);
+            setValue2(value[1]);
+        }
+        else {
+            setValue2(value);
+        }
+
+        // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый
+    }
+
 
     return (
         <div id={'hw11'}>
@@ -39,19 +54,19 @@ function HW11() {
                         <SuperRange
                             id={'hw11-single-slider'}
                         value={value1}
-                        onChange={(e, v)=>change(e, v)}
+                        onChange={(e, v)=>change1(e, v)}
 
                         // сделать так чтоб value1 изменялось // пишет студент
 
                         />
                     </div>
                     <div className={s.wrapper}>
-                        <span id={'hw11-value-1'} className={s.number}>{value1}</span>
+                        <span id={'hw11-value-1'} className={s.number}>{value2}</span>
                         <SuperRange
                             id={'hw11-double-slider'}
                         // сделать так чтоб value1/2 изменялось // пишет студент
                         value={value2}
-                        onChange={(e, v)=>change(e, v)}
+                        onChange={(e, v)=>change2(e, v)}
                         />
                         <span id={'hw11-value-2'} className={s.number}>{value2}</span>
                     </div>
